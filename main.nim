@@ -1,8 +1,3 @@
-## Linking the SDL2.framework file for distribution as an OSX ".app" done via:
-## https://github.com/nim-lang/opengl/blob/master/src/opengl.nim#L53
-## 
-## TODO: Need to set up the pragma for SDL2.framework
-## TODO: Setup Makefile to build Example.app bundle: http://joseph-long.com/writing/app-bundles-with-a-makefile/
 import sdl2
 
 ## Compiler/Linker pragmas
