@@ -5,10 +5,13 @@ FRAMEWORK_PATH=$(HOME)/Library/Frameworks
 APP_NAME=Example
 NIM_OPTIONS=--define:SDL_Static --parallelBuild:1
 
-all: clean build/SDLExample2.app
-
+all: clean build/app
 clean:
 	rm -r build && mkdir -p build && touch build/.gitkeep
+package: build/SDLExample2.app
+
+build/app: main.nim
+	nim c $(NIM_OPTIONS) --out:build/app main.nim
 
 build/SDLExample2.app: build/app
 	mkdir -p "./build/$(APP_NAME).app"/Contents/{MacOS,Resources,Frameworks}
@@ -18,7 +21,4 @@ build/SDLExample2.app: build/app
 	cp ./build/app "./build/$(APP_NAME).app/Contents/MacOS/$(APP_NAME)"
 	chmod +x "./build/$(APP_NAME).app/Contents/MacOS/$(APP_NAME)"
 
-build/app: main.nim
-	nim c $(NIM_OPTIONS) --out:build/app main.nim
-
-.PHONY: all clean
+.PHONY: all clean package
