@@ -1,0 +1,7 @@
+# Compiled binaries
+/build
+/nim-sdl2
+/nimcache
+
+# Keep useful folders
+!.gitkeep
