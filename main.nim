@@ -12,7 +12,7 @@ when defined(macosx):
 elif defined(Windows):
     {.fatal: "Windows compilation yet to be implemented".}
 elif defined(Linux):
-    {.fatal: "Linux compilation yet to be implemented".{}
+    {.fatal: "Linux compilation yet to be implemented".}
 
 var 
   win: WindowPtr

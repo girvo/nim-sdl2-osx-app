@@ -8,12 +8,12 @@ NIM_OPTIONS=--define:SDL_Static --parallelBuild:1
 all: clean build/app
 clean:
 	rm -r build && mkdir -p build && touch build/.gitkeep
-package: build/SDLExample2.app
+package: clean build/Example.app
 
 build/app: main.nim
 	nim c $(NIM_OPTIONS) --out:build/app main.nim
 
-build/SDLExample2.app: build/app
+build/Example.app: build/app
 	mkdir -p "./build/$(APP_NAME).app"/Contents/{MacOS,Resources,Frameworks}
 	cp -R "$(FRAMEWORK_PATH)/SDL2.framework" "./build/$(APP_NAME).app/Contents/Frameworks/"
 	cp Info.plist "./build/$(APP_NAME).app/Contents/"
